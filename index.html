@@ -16,12 +16,7 @@
                 <label for="Eng">English:</label>
                 <input type="text" id="eng" placeholder="calculate eng score"><br>
             </li>
-            <!-- <li>
-                <input type="text" placeholder="Calculate"><br>
-            </li>
-            <li>
-                <input type="text" placeholder="score"><br>
-            </li> -->
+
             <li>
                 <button>check avg</button>
             </li>
@@ -38,6 +33,7 @@
         //create an element
         const para1 = document.createElement('p')
         const para2 = document.createElement('p')
+        const para3 = document.createElement('p')
 
         function calc(e){
             e.preventDefault()
@@ -48,12 +44,12 @@
 
 
             //append the paragraph
-            section.append(para1,para2)
+            section.append(para1,para2,para3)
 
             para1.textContent = 'Average score is: ' + avg
             //using Tenary operator
             para2.textContent = `'Grade: ' ${avg >=70 ? "A" : avg >=60 ? "B" : avg >= 50 ? "C" : avg <= 50 ? 'FF' : "fail"}`
-            para2.style.backgroundColor = `'Grade: ' ${avg >=70 ? "green" : avg >=60 ? "blue" : avg <= 50 ? "orange" : avg <= 50 ? 'yellow' : "Red"}`
+            para3.style.backgroundColor = `'Grade: ' ${avg >=70 ? "green" : avg >=60 ? "blue" : avg <= 50 ? "orange" : avg <= 50 ? 'yellow' : "Red"}`
             // alert(avg)
         }
 
