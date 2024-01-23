@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <form>
+        <ul>
+            <li>
+                <label for="Wi">Weight:</label>
+                <input type="number" id="mths" placeholder="enter your weight in kg"><br>
+            </li>
+            <li>
+                <label for="Hi">Height:</label>
+                <input type="number" id="eng" placeholder=" enter Your height in cm"><br>
+            </li>
+            <!-- <li>
+                <input type="text" placeholder="Calculate"><br>
+            </li>
+            <li>
+                <input type="text" placeholder="score"><br>
+            </li> -->
+            <li>
+                <button>check BMI</button>
+            </li>
+        </ul>
+    </form>
+    <section>
+
+    </section>
+    <script>
+        const input = document.getElementsByTagName('input')
+        const btn = document.querySelector('button')
+        const section = document.querySelector('section')
+        //create an element
+        const para1 = document.createElement('p')
+        const para2 = document.createElement('p')
+        const para3 = document.createElement('p')
+
+        function calc(e){
+            e.preventDefault()
+            const weight = input[0].value*1
+            const height = input[1].value/100
+
+            const BMI = (weight)/height **2
+
+
+            //append the paragraph
+            section.append(para1,para2,para3)
+
+            para1.innerHTML = 'BMI result is ' + BMI.toFixed(2) +`kgm<sup>-2</sup>`
+            //using Tenary operator
+            para2.innerHTML = `Status:  ${BMI >=30 ? "Obessed" : BMI >=25 ? "Over weight" : BMI >= 20 ? "Healthy weight" : "Visit a doctor bro"}`
+            para3.textContent = `Recommendation:  ${BMI >=30 ? "Kindly Visit a doctor" : BMI >=25 ? "hit the gym" : BMI >= 20 ? "Healthy weight, keep up the healthy diet" : BMI <= 15 ? 'you are underweight, Eat food' : "Visit a doctor bro"}`
+        }
+
+        btn.addEventListener('click', calc)
+    </script>
+</body>
+</html>
