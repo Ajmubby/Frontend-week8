@@ -53,7 +53,7 @@
             para1.innerHTML = 'BMI result is ' + BMI.toFixed(2) +`kgm<sup>-2</sup>`
             //using Tenary operator
             para2.innerHTML = `Status:  ${BMI >=30 ? "Obessed" : BMI >=25 ? "Over weight" : BMI >= 20 ? "Healthy weight" : "Visit a doctor bro"}`
-            para3.textContent = `Recommendation:  ${BMI >=30 ? "Kindly Visit a doctor" : BMI >=25 ? "hit the gym" : BMI >= 20 ? "Healthy weight, keep up the healthy diet" : BMI <= 15 ? 'you are underweight, Eat food' : "Visit a doctor bro"}`
+            para3.textContent = `Recommendation:  ${BMI >=30 ? "Kindly Visit a doctor" : BMI >=25 ? "hit the gym" : BMI >= 20 ? "Healthy weight, keep up the healthy diet" : "you are underweight, Subject yourself to a healthy diet food"}`
         }
 
         btn.addEventListener('click', calc)
