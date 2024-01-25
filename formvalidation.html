@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <style>
+        li{
+            line-height: 30px;
+        }
+        fieldset{
+            background-color: aquamarine;
+        }
+
+        body{
+            background-color: azure;
+        }
+        
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Form validator</legend>
+        <form>
+            <ul>
+                <li>
+                    <label for="name" id="name" >Name:</label>
+                    <input type="text" required placeholder="surname first">
+                    <span></span>
+                </li>
+                <li>
+                    <label for="email" id="email">Email:</label>
+                    <input type="email" >
+                    <span></span>
+                </li>
+                <li>
+                    <label for="password" id="password"  >Enter password:</label>
+                    <input type="password"  max="8">
+                    <span></span>
+                </li>
+                <button id="btn">Submit</button>
+            </ul>
+        </form>
+    </fieldset>
+    <script>
+        const inputs = document.querySelector('input[type = "text"]')
+        const emailIn = document.querySelector('input[type = "email"]')
+        const pass = document.querySelector('input[type = "password"]')
+        const btn = document.getElementById('btn')
+        const textSpan =document.getElementsByTagName('span')
+        const lists = document.querySelectorAll('li')
+
+       
+        
+        btn.addEventListener('click', (e) => {
+            e.preventDefault()
+            //declare a variable of letter
+            const letters = 'abcdefghijklmnopqrstuvwxyz'
+
+            //split the input string
+            const str = (inputs.value).toLowerCase().split('')
+
+            //check if a str is not a letter
+            const strFilter = str.filter(a => letters.indexOf(a) == -1)
+            
+
+            strFilter.length == 0 && str.length >0 ? textSpan[0].textContent = 'username is correct' : textSpan[0].textContent = 'Invalid username'
+
+            console.log(strFilter)
+        })
+
+        emailIn.addEventListener('change', (e) =>{
+            e.preventDefault()
+
+            //save the email address
+
+            const email = emailIn.value
+
+            email.includes('@') && email.includes('.') ? textSpan[1].innerText = 'Vaild email' : textSpan[1].innerText = 'Invalid email'
+
+        })
+
+        pass.addEventListener('change', (e) =>{
+            e.preventDefault()
+
+            const code = pass.value
+
+            const upPa = code.split('').filter(b => b==b.toUpperCase() && isNaN(b))
+            const numPa = code.split('').filter(b => !isNaN(b))
+
+            upPa.length>0 && code.length>=8 && numPa.length>0 ? textSpan[2].innerText = 'Valid password' : textSpan[2].innerText = 'Invaild password'
+            console.log(code)
+        })
+    </script>
+</body>
+</html>
