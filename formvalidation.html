@@ -43,6 +43,7 @@
         </form>
     </fieldset>
     <script>
+        //declare a variable and use apporpriate DOM method to target each element in the HTML
         const inputs = document.querySelector('input[type = "text"]')
         const emailIn = document.querySelector('input[type = "email"]')
         const pass = document.querySelector('input[type = "password"]')
@@ -63,7 +64,7 @@
             //check if a str is not a letter
             const strFilter = str.filter(a => letters.indexOf(a) == -1)
             
-
+            //if the length of the variable "strFilter" is equals to zero and the lenght of variable "str(the input)" is greater than 0, return username... else return invalid...
             strFilter.length == 0 && str.length >0 ? textSpan[0].textContent = 'username is correct' : textSpan[0].textContent = 'Invalid username'
 
             console.log(strFilter)
